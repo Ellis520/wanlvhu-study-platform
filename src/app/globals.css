@@ -1,0 +1,417 @@
+@import url('https://fonts.googleapis.cn/css2?family=Noto+Serif+SC:wght@300..800&family=Noto+Sans+SC:wght@300..600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --font-sans: "Noto Sans SC", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  --font-serif: "Noto Serif SC", "Songti SC", "SimSun", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --shadow-2xs: 0 1px 10px 0px hsl(0 0% 0% / 0.03);
+  --shadow-xs: 0 1px 10px 0px hsl(0 0% 0% / 0.03);
+  --shadow-sm: 0 1px 10px 0px hsl(0 0% 0% / 0.05), 0 1px 2px -1px hsl(0 0% 0% / 0.05);
+  --shadow-md: 0 1px 10px 0px hsl(0 0% 0% / 0.05), 0 2px 4px -1px hsl(0 0% 0% / 0.05);
+  --shadow-lg: 0 1px 10px 0px hsl(0 0% 0% / 0.05), 0 4px 6px -1px hsl(0 0% 0% / 0.05);
+  --shadow-xl: 0 1px 10px 0px hsl(0 0% 0% / 0.05), 0 8px 10px -1px hsl(0 0% 0% / 0.05);
+  --shadow-2xl: 0 1px 10px 0px hsl(0 0% 0% / 0.13);
+}
+
+:root {
+  --background: oklch(0.99 0.005 160);
+  --foreground: oklch(0.15 0.02 165);
+  --card: oklch(0.99 0.005 160);
+  --card-foreground: oklch(0.15 0.02 165);
+  --popover: oklch(0.99 0.005 160);
+  --popover-foreground: oklch(0.15 0.02 165);
+  --primary: oklch(0.45 0.085 165);
+  --primary-foreground: oklch(0.98 0.01 165);
+  --secondary: oklch(0.94 0.025 165);
+  --secondary-foreground: oklch(0.25 0.04 165);
+  --muted: oklch(0.96 0.01 165);
+  --muted-foreground: oklch(0.45 0.02 165);
+  --accent: oklch(0.92 0.03 165);
+  --accent-foreground: oklch(0.2 0.04 165);
+  --destructive: oklch(0.55 0.18 25);
+  --border: oklch(0.86 0.028 160);
+  --input: oklch(0.86 0.028 160);
+  --ring: oklch(0.45 0.085 165);
+  --chart-1: oklch(0.55 0.12 170);
+  --chart-2: oklch(0.70 0.10 160);
+  --chart-3: oklch(0.40 0.07 180);
+  --chart-4: oklch(0.82 0.08 155);
+  --chart-5: oklch(0.30 0.06 165);
+  --sidebar: oklch(0.95 0.02 165);
+  --sidebar-foreground: oklch(0.2 0.03 165);
+  --sidebar-primary: oklch(0.45 0.085 165);
+  --sidebar-primary-foreground: oklch(0.98 0.01 165);
+  --sidebar-accent: oklch(0.92 0.03 165);
+  --sidebar-accent-foreground: oklch(0.2 0.04 165);
+  --sidebar-border: oklch(0.90 0.02 165);
+  --sidebar-ring: oklch(0.45 0.085 165);
+  --radius: 0.65rem;
+
+  /* 生态画布：湖面天光 / 岸边苔绿 / 近水浅滩 / 等深线 */
+  --eco-water: oklch(0.93 0.045 175 / 0.55);
+  --eco-moss: oklch(0.93 0.05 150 / 0.45);
+  --eco-shoal: oklch(0.95 0.035 185 / 0.5);
+  --eco-contour: oklch(0.45 0.085 165 / 0.05);
+  --eco-canvas:
+    radial-gradient(115% 58% at 50% -8%, var(--eco-water), transparent 72%),
+    radial-gradient(62% 44% at -6% 102%, var(--eco-moss), transparent 72%),
+    radial-gradient(58% 40% at 106% 90%, var(--eco-shoal), transparent 74%);
+
+  /* 风景底：万绿湖清晨实景 + 纸白蒙层，蒙层浓度决定风景透出的强度 */
+  --scene-image: url('/wanlvhu-dawn.jpg');
+  --scene-wash: radial-gradient(115% 58% at 50% -8%, oklch(0.93 0.045 175 / 0.42), transparent 72%);
+  --scene-veil: linear-gradient(
+    180deg,
+    oklch(0.995 0.004 160 / 0.8) 0%,
+    oklch(0.988 0.006 160 / 0.89) 45%,
+    oklch(0.982 0.008 160 / 0.95) 100%
+  );
+
+  /* 生态细节：苔绿描边 / 水纹 / 卡片水光 */
+  --eco-edge: oklch(0.72 0.06 158);
+  --eco-edge-soft: oklch(0.84 0.035 158);
+  --eco-edge-hair: oklch(0.88 0.025 160);
+  --eco-edge-deep: oklch(0.4 0.08 160);
+  --eco-wave-line: oklch(0.45 0.085 165 / 0.22);
+  --eco-wash: oklch(0.95 0.03 160 / 0.6);
+}
+
+.dark {
+  --background: oklch(0.13 0.028 261.692);
+  --foreground: oklch(0.985 0.002 247.839);
+  --card: oklch(0.21 0.034 264.665);
+  --card-foreground: oklch(0.985 0.002 247.839);
+  --popover: oklch(0.21 0.034 264.665);
+  --popover-foreground: oklch(0.985 0.002 247.839);
+  --primary: oklch(0.70 0.15 162);
+  --primary-foreground: oklch(0.26 0.05 173);
+  --secondary: oklch(0.274 0.006 286.033);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.278 0.033 256.848);
+  --muted-foreground: oklch(0.707 0.022 261.325);
+  --accent: oklch(0.278 0.033 256.848);
+  --accent-foreground: oklch(0.985 0.002 247.839);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.551 0.027 264.364);
+  --chart-1: oklch(0.85 0.13 165);
+  --chart-2: oklch(0.77 0.15 163);
+  --chart-3: oklch(0.70 0.15 162);
+  --chart-4: oklch(0.60 0.13 163);
+  --chart-5: oklch(0.51 0.10 166);
+  --sidebar: oklch(0.21 0.034 264.665);
+  --sidebar-foreground: oklch(0.985 0.002 247.839);
+  --sidebar-primary: oklch(0.77 0.15 163);
+  --sidebar-primary-foreground: oklch(0.26 0.05 173);
+  --sidebar-accent: oklch(0.278 0.033 256.848);
+  --sidebar-accent-foreground: oklch(0.985 0.002 247.839);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.551 0.027 264.364);
+
+  /* 生态画布（夜里的深潭） */
+  --eco-water: oklch(0.32 0.05 175 / 0.35);
+  --eco-moss: oklch(0.3 0.045 150 / 0.3);
+  --eco-shoal: oklch(0.33 0.04 185 / 0.32);
+  --eco-contour: oklch(0.8 0.06 170 / 0.05);
+
+  /* 生态细节（暗色）：苔绿描边提亮，水纹降到可辨识但不刺眼 */
+  --eco-edge: oklch(0.72 0.09 160);
+  --eco-edge-soft: oklch(0.42 0.05 162);
+  --eco-edge-hair: oklch(1 0 0 / 0.12);
+  --eco-edge-deep: oklch(0.55 0.1 162);
+  --eco-wave-line: oklch(0.8 0.06 170 / 0.22);
+  --eco-wash: oklch(1 0 0 / 0.03);
+
+  /* 风景底（暗色）：夜色下的湖面，用深色蒙层压住亮度 */
+  --scene-wash: radial-gradient(115% 58% at 50% -8%, oklch(0.3 0.05 175 / 0.4), transparent 72%);
+  --scene-veil: linear-gradient(
+    180deg,
+    oklch(0.13 0.028 262 / 0.85) 0%,
+    oklch(0.12 0.024 262 / 0.92) 50%,
+    oklch(0.11 0.02 262 / 0.96) 100%
+  );
+}
+
+@custom-variant dark (&:is(.dark *));
+
+/* 小屏：背景不再固定，避免 iOS 上 fixed 背景随滚动抖动 */
+@media (max-width: 640px) {
+  body {
+    background-attachment: scroll;
+    background-position: center top, center, center top;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    background-color: var(--background);
+    background-image: var(--scene-wash), var(--scene-veil), var(--scene-image);
+    background-size: auto, auto, cover;
+    background-position: center top, center, center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+}
+
+/* ==================== 生态细节工具类 ==================== */
+/* 统一笔触：起点加浓、描边带湿感、标记永远小于内容 */
+
+/* 面板 / 卡片：1px 苔绿描边 + 顶部水光 + 左上角苔绿刻度 */
+.eco-card {
+  position: relative;
+  border: 1px solid var(--eco-edge-soft);
+  border-radius: 0.5rem;
+  background-color: var(--card);
+  background-image: linear-gradient(180deg, var(--eco-wash), transparent 42%);
+}
+
+.eco-card::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 24px;
+  height: 2px;
+  border-top-left-radius: 0.5rem;
+  background-image: linear-gradient(90deg, var(--eco-edge), transparent);
+  pointer-events: none;
+}
+
+/* 段落分隔线：1px 苔绿线，左端 24px 加浓成标尺起点 */
+.eco-rule-t {
+  position: relative;
+  border-top: 1px solid var(--eco-edge-hair);
+}
+
+.eco-rule-t::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 24px;
+  height: 1px;
+  background-color: var(--eco-edge);
+  pointer-events: none;
+}
+
+/* 水纹分隔条：16px 一组的重复半弧，两端遮罩淡出 */
+.eco-wave {
+  height: 6px;
+  background-image: radial-gradient(
+    circle at 8px 7px,
+    transparent 4px,
+    var(--eco-wave-line) 4.2px,
+    transparent 4.6px
+  );
+  background-size: 16px 6px;
+  background-repeat: repeat-x;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+
+/* 主按钮：苔绿到深苔绿微渐变 + 顶部内高光 */
+.eco-btn-solid {
+  background-image: linear-gradient(135deg, var(--primary), var(--eco-edge-deep));
+  box-shadow: inset 0 1px 0 oklch(1 0 0 / 0.14);
+}
+
+/* 次要按钮：苔绿描边，hover 加浓并浮起一层极淡苔绿底 */
+.eco-btn-outline {
+  border: 1px solid var(--eco-edge-soft);
+  background-color: transparent;
+  transition:
+    border-color 200ms ease,
+    background-color 200ms ease,
+    color 200ms ease;
+}
+
+.eco-btn-outline:hover {
+  border-color: var(--eco-edge);
+  background-color: var(--eco-wash);
+}
+
+/* 图标 / 徽标容器：24px 苔绿小方章，内部图形随文字色 */
+.eco-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--eco-edge-soft);
+  border-radius: 0.375rem;
+  background-color: var(--eco-wash);
+  color: var(--eco-edge);
+}
+
+.eco-icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* 图片 / 标识外框：苔绿细描边 + 纸底 */
+.eco-frame {
+  border: 1px solid var(--eco-edge-soft);
+  background-color: var(--card);
+}
+
+/* 等宽数字：分数、进度、编号在小数位与位数变化时保持基线不跳动 */
+.eco-num {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1;
+  letter-spacing: 0.01em;
+}
+
+/* 入场编排：整个页面一次性铺开，靠 --reveal-delay 控制先后，不用逐块各自动 */
+.eco-reveal {
+  animation: eco-reveal 620ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+
+@keyframes eco-reveal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eco-reveal {
+    animation: none;
+  }
+}
+
+/* 可点击卡片：描边加浓 + 1px 上浮，不出现阴影 */
+.eco-card-link {
+  transition:
+    border-color 220ms ease,
+    transform 220ms ease;
+}
+
+.eco-card-link:hover {
+  border-color: var(--eco-edge);
+  transform: translateY(-1px);
+}
+
+.eco-card-link:focus-within {
+  border-color: var(--eco-edge);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eco-card-link,
+  .eco-card-link:hover {
+    transition: none;
+    transform: none;
+  }
+}
+
+/* 选中文本：像用荧光笔在记录本上划过一道苔绿 */
+::selection {
+  background-color: oklch(0.72 0.06 158 / 0.26);
+  color: var(--foreground);
+}
+
+/* 回顾卡片入场：像抽出一张刚刚洗好的照片，轻微上浮 + 淡入 */
+.memory-card-enter {
+  animation: memory-card-enter 420ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+@keyframes memory-card-enter {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .memory-card-enter {
+    animation: none;
+  }
+}
+
+
+/* 打印 / 导出 PDF：去掉深色底与页面外壳，正文按纸张排版 */
+@media print {
+  @page {
+    margin: 16mm 14mm;
+  }
+  html,
+  body {
+    background: #fff !important;
+    background-image: none !important;
+    color: #111 !important;
+  }
+  /* 打印时去掉生态细节，回到干净纸面 */
+  .eco-card {
+    background-image: none !important;
+    border-color: #ccc !important;
+  }
+  .eco-card::before,
+  .eco-rule-t::before,
+  .eco-wave,
+  .eco-icon {
+    display: none !important;
+  }
+  .eco-btn-solid {
+    background-image: none !important;
+    box-shadow: none !important;
+  }
+  textarea,
+  input {
+    display: none !important;
+  }
+}
+
